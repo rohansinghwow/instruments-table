@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Search from "./Search";
+import useInstrumentStore from "../intrumentStore";
 import Papa from "papaparse";
 export default function Table() {
   const [CSVData, setCSVData] = useState();
+  const { query } = useInstrumentStore((state) => state);
 
   useEffect(() => {
     const response = fetch("https://prototype.sbulltech.com/api/v2/instruments")
@@ -56,7 +58,13 @@ export default function Table() {
             </tr>
           </thead>
           <tbody>
-            {CSVData?.map(({ Symbol, Name, Sector, Validtill }, index) => (
+            {CSVData?.filter(
+              (obj) =>
+                obj.Symbol?.toLowerCase().includes(query.toLowerCase()) ||
+                obj.Name?.toLowerCase().includes(query.toLowerCase()) ||
+                obj.Sector?.toLowerCase().includes(query.toLowerCase()) ||
+                obj.Validtill?.toLowerCase().includes(query.toLowerCase())
+            ).map(({ Symbol, Name, Sector, Validtill }, index) => (
               <tr
                 key={index}
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"

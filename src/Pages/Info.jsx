@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Search from "./Search";
+
 import Papa from "papaparse";
 
 export default function Info() {
