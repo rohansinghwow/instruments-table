@@ -4,17 +4,15 @@ const useInstrumentStore = create((set) => (
     {
         CSV_DATA: [],
         query: '',
-
+        symbol: 'SBIN',
 
 
         setQuery: (str) => {
             set((state) => ({ query: str }))
         },
-        clearQuery: () => {
-            set(() => {
-                query: ''
-            })
-        }
+        setSymbol: (str) => {
+            set((state) => ({ symbol: str }))
+        },
 
     }
 ))

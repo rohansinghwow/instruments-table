@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import Search from "./Search";
 import useInstrumentStore from "../intrumentStore";
 import Papa from "papaparse";
+import { Link } from "react-router-dom";
 export default function Table() {
   const [CSVData, setCSVData] = useState();
-  const { query } = useInstrumentStore((state) => state);
+  const { query, setSymbol } = useInstrumentStore((state) => state);
 
   useEffect(() => {
     const response = fetch("https://prototype.sbulltech.com/api/v2/instruments")
@@ -19,6 +20,8 @@ export default function Table() {
     response.then((v) => setCSVData(v.data));
 
     console.log(CSVData, "cscc");
+
+    return "CSV";
   }, []);
 
   return (
@@ -88,7 +91,14 @@ export default function Table() {
                   scope="row"
                   className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  {Symbol || "---"}
+                  <Link
+                    to={"/info"}
+                    onClick={() => setSymbol(Symbol)}
+                    className="text-blue-400 hover:underline"
+                  >
+                    {" "}
+                    {Symbol || "---"}{" "}
+                  </Link>
                 </th>
                 <td className="py-4 px-6">{Name || "---"}</td>
                 <td className="py-4 px-6">{Sector || "---"}</td>
