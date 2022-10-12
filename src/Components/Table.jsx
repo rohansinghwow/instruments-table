@@ -80,11 +80,11 @@ export default function Table() {
                   scope="row"
                   className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  {Symbol || "Not Found"}
+                  {Symbol || "---"}
                 </th>
-                <td className="py-4 px-6">{Name || "Not Found"}</td>
-                <td className="py-4 px-6">{Sector || "Not Found"}</td>
-                <td className="py-4 px-6">{Validtill || "Not Found"}</td>
+                <td className="py-4 px-6">{Name || "---"}</td>
+                <td className="py-4 px-6">{Sector || "---"}</td>
+                <td className="py-4 px-6">{Validtill || "---"}</td>
                 <td className="py-4 px-6">
                   <a
                     href="#"
