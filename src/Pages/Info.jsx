@@ -23,11 +23,16 @@ export default function Info() {
   }, []);
 
   return (
-    <>
-      <h1>Info Page</h1>
+    <div className="mt-16 mx-auto max-w-[520px]">
+      <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-2xl dark:text-white">
+        <mark className="px-2 ml-2 text-white bg-blue-600 rounded dark:bg-blue-500">
+          {symbol}
+        </mark>
+      </h1>
+
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <thead className="bg-blue-600 rounded dark:bg-blue-500 text-xs text-gray-700 uppercase dark:text-gray-400 text-white shadow-lg">
             <tr>
               <th scope="col" className="py-3 px-6">
                 Price
@@ -64,6 +69,6 @@ export default function Info() {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 }

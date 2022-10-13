@@ -8,8 +8,8 @@ export default function Search() {
     setQuery(e.target.value);
   }
   return (
-    <>
-      <div className="pb-4 bg-white dark:bg-gray-900">
+    <div>
+      <div className="pb-4 bg-white w-full  dark:bg-gray-900">
         <label for="table-search" className="sr-only">
           Search
         </label>
@@ -39,6 +39,6 @@ export default function Search() {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }
