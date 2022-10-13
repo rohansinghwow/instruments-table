@@ -73,7 +73,9 @@ export default function Table() {
                   </th>
                   <td className="py-4 px-6">{Name || "---"}</td>
                   <td className="py-4 px-6">{Sector || "---"}</td>
-                  <td className="py-4 px-6">{Validtill || "---"}</td>
+                  <td className="py-4 px-6">
+                    {new Date(Validtill + "Z").toDateString() || "---"}
+                  </td>
                 </tr>
               ))}
             </tbody>
