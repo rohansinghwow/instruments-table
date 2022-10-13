@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from "react";
 import useInstrumentStore from "../intrumentStore";
-
+import { handleCountDown } from "../handleCountDown";
 export default function Info() {
-  const [symbolData, setSymbolData] = useState([]);
-  const { symbol } = useInstrumentStore((state) => state);
+  function onDone() {
+    window.location.reload(false);
+    console.log("Fireddd");
+  }
+
+  const { getSymbol, symbolData, leastValidTime } = useInstrumentStore(
+    (state) => state
+  );
 
   useEffect(() => {
-    fetch("https://prototype.sbulltech.com/api/v2/quotes/" + symbol)
-      .then((res) => res.json())
-      .then((data) => setSymbolData(data.payload[symbol]));
+    getSymbol("https://prototype.sbulltech.com/api/v2/quotes/");
+    console.log(leastValidTime);
+  }, []);
 
-    console.log(
-      symbolData,
-      "https://prototype.sbulltech.com/api/v2/quotes/" + symbol
-    );
+  useEffect(() => {
+    let getTime = symbolData.valid_till;
+    const timeLeft = (Date.now() - new Date(getTime)) / 1000;
   }, []);
   return (
     <>
@@ -26,7 +31,7 @@ export default function Info() {
                 Price
               </th>
               <th scope="col" className="py-3 px-6">
-                Time
+                Date
               </th>
               <th scope="col" className="py-3 px-6">
                 Valid Till
@@ -34,18 +39,26 @@ export default function Info() {
             </tr>
           </thead>
           <tbody>
-            {symbolData?.map(({ price, time, valid_till }, index) => (
-              <tr
-                key={index}
-                className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-              >
-                <td className="py-4 px-6">
-                  Rs. {price.toString().slice(0, 8) || "---"}/-
-                </td>
-                <td className="py-4 px-6">{time || "---"}</td>
-                <td className="py-4 px-6">{valid_till || "---"}</td>
-              </tr>
-            ))}
+            {symbolData?.map(({ price, time, valid_till }, index) => {
+              return (
+                <>
+                  <tr
+                    key={index}
+                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                  >
+                    <td className="py-4 px-6">
+                      Rs. {price.toString().slice(0, 8) || "---"}/-
+                    </td>
+                    <td className="py-4 px-6">
+                      {new Date(time + "Z").toDateString() || "---"}
+                    </td>
+                    <td className="py-4 px-6">
+                      {new Date(valid_till + "Z").toLocaleTimeString() || "---"}
+                    </td>
+                  </tr>
+                </>
+              );
+            })}
           </tbody>
         </table>
       </div>
