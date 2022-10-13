@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from "react";
 import useInstrumentStore from "../intrumentStore";
-import { handleCountDown } from "../handleCountDown";
-export default function Info() {
-  function onDone() {
-    window.location.reload(false);
-    console.log("Fireddd");
-  }
 
-  const { getSymbol, symbolData, leastValidTime } = useInstrumentStore(
+import { useTimeout } from "react-use-timeout";
+export default function Info() {
+  const { getSymbol, symbol, symbolData, leastValidTime } = useInstrumentStore(
     (state) => state
   );
 
-  useEffect(() => {
+  function onDone() {
+    window.location.reload(false);
+    console.log("Fireddd");
     getSymbol("https://prototype.sbulltech.com/api/v2/quotes/");
-    console.log(leastValidTime);
-  }, []);
+  }
+  const timeout = useTimeout(onDone, leastValidTime);
+  console.log(leastValidTime);
+  timeout.start();
+  console.log(typeof leastValidTime);
 
   useEffect(() => {
-    let getTime = symbolData.valid_till;
-    const timeLeft = (Date.now() - new Date(getTime)) / 1000;
+    console.log(symbol);
+    getSymbol("https://prototype.sbulltech.com/api/v2/quotes/");
   }, []);
+
   return (
     <>
       <h1>Info Page</h1>

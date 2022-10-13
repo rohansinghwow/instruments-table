@@ -6,7 +6,7 @@ const useInstrumentStore = create((set, get) => (
         query: '',
         symbol: 'SBIN', //default
         symbolData: [],
-        leastValidTime: 10000,
+        leastValidTime: 10000000000,
 
         setQuery: (str) => {
             set((state) => ({ query: str }))
@@ -18,9 +18,10 @@ const useInstrumentStore = create((set, get) => (
 
             set({ symbolData: data.payload[get().symbol] })
             const validArr = []
-            await get().symbolData.map(item => validArr.push(new Date(item.valid_till).toLocaleTimeString()))
-            console.log(validArr)
-            set((state) => ({ leastValidTime: validArr[1] }))
+            await get().symbolData.map(item => validArr.push((Date.now() - new Date(item.valid_till)) / 1000))
+            console.log(validArr[0])
+
+            set({ leastValidTime: validArr[0] })
 
         },
         setSymbol: (str) => {
