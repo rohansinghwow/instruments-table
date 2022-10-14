@@ -19,7 +19,6 @@ npm start
 - React JS
 - React Router Dom
 - Zustand - State management
-- Netlify (free) for hosting the frontend .
 
 # Important Files
 
@@ -35,7 +34,7 @@ npm start
 
 ### Table.jsx
 
-- The main table used for displaying list of table
+- The main table used for displaying list of stocks
 
 ### Info.jsx
 
