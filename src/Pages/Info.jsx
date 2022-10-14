@@ -1,24 +1,33 @@
 import React, { useEffect, useState } from "react";
 import useInstrumentStore from "../intrumentStore";
 
-import { useTimeout } from "react-use-timeout";
 export default function Info() {
-  const { getSymbol, symbol, symbolData, leastValidTime } = useInstrumentStore(
-    (state) => state
-  );
-
-  function onDone() {
-    window.location.reload(false);
-    console.log("Fireddd");
-    getSymbol("https://prototype.sbulltech.com/api/v2/quotes/");
-  }
-  const timeout = useTimeout(onDone, leastValidTime);
-  console.log(leastValidTime);
-  timeout.start();
-  console.log(typeof leastValidTime);
+  const { getSymbol, symbol, symbolData, leastValidTime, dates, doSorting } =
+    useInstrumentStore((state) => state);
+  const [order, setOrder] = useState(false);
 
   useEffect(() => {
-    console.log(symbol);
+    if (order) {
+      doSorting("DSC");
+    } else {
+      doSorting("ASC");
+    }
+  }, [order]);
+
+  //   function onDone() {
+  //     // window.location.reload(false);
+  //     console.log("Fireddd");
+  //     getSymbol("https://prototype.sbulltech.com/api/v2/quotes/");
+  //   }
+  //   const timeout = useTimeout(onDone, 40000);
+
+  //   console.log(leastValidTime - new Date().toISOString());
+
+  //   console.log(typeof leastValidTime);
+  //   timeout.start();
+  useEffect(() => {
+    console.log(dates);
+    console.log(symbolData);
     getSymbol("https://prototype.sbulltech.com/api/v2/quotes/");
   }, []);
 
@@ -37,8 +46,12 @@ export default function Info() {
               <th scope="col" className="py-3 px-6">
                 Price
               </th>
-              <th scope="col" className="py-3 px-6">
-                Date
+              <th
+                onClick={() => setOrder(!order)}
+                scope="col"
+                className="py-3 px-6 cursor-pointer"
+              >
+                Time
               </th>
               <th scope="col" className="py-3 px-6">
                 Valid Till
@@ -57,7 +70,7 @@ export default function Info() {
                       Rs. {price.toString().slice(0, 8) || "---"}/-
                     </td>
                     <td className="py-4 px-6">
-                      {new Date(time + "Z").toDateString() || "---"}
+                      {new Date(time + "Z").toLocaleTimeString() || "---"}
                     </td>
                     <td className="py-4 px-6">
                       {new Date(valid_till + "Z").toLocaleTimeString() || "---"}
