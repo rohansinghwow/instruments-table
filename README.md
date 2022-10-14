@@ -14,8 +14,8 @@ npm start
 
 ### Tech Used
 
-- Vite for fast build time
-- Windi CSS for fast CSS build speed . Same as Tailwind CSS but faster.
+- Vite for super fast build/serve time .
+- Windi CSS for super-fast CSS build speed . Same as Tailwind CSS but faster.
 - React JS
 - React Router Dom
 - Zustand - State management
