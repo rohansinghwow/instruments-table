@@ -40,20 +40,6 @@ const useInstrumentStore = createStore(
                 setSymbol: (str) => {
                     set((state) => ({ symbol: str }))
                 },
-                setSymbolData: (data) => {
-                    get().symbolData.map((obj, idx) => {
-                        return {
-                            ...obj,
-                            valid_till: dates
-                        }
-                    })
-                },
-
-                getTimeLeft: () => {
-                    const response = get().symbolData
-
-                },
-
                 doSorting: (order) => {
                     if (order === "ASC") {
                         const res = get().symbolData.sort(function (a, b) { return new Date(a.time) - new Date(b.time) })

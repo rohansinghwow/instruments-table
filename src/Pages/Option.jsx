@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import useInstrumentStore from "../intrumentStore";
-import { useNavigate } from "react-router-dom";
+
 import { Link } from "react-router-dom";
 
 export default function Option() {
-  const navigate = useNavigate();
   const refreshPage = () => {
-    navigate(0);
+    window.location.reload(false);
   };
   const { getSymbol, symbol, symbolData, leastValidTime, doSorting } =
     useInstrumentStore((state) => state);
@@ -65,7 +64,8 @@ export default function Option() {
           role="alert"
         >
           <span className="font-medium">Validity Expired !</span>Please Wait ,
-          Getting latest valid time and Reloading ...
+          Getting latest valid time and Reloading . This will Refresh a few
+          times.
         </div>
       )}
 
