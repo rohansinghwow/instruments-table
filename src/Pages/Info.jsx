@@ -57,6 +57,14 @@ export default function Info() {
           {symbol}
         </mark>
       </h1>
+
+      <Link
+        to={"/"}
+        className="text-white mb-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Go Back
+      </Link>
+
       {expired && (
         <div
           className="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800"
@@ -66,12 +74,6 @@ export default function Info() {
           Getting latest valid time and Reloading ...
         </div>
       )}
-      <Link
-        to={"/"}
-        className="text-white mb-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-      >
-        Go Back
-      </Link>
 
       {!expired && (
         <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -86,7 +88,7 @@ export default function Info() {
                   scope="col"
                   className="py-3 flex items-center px-6 cursor-pointer"
                 >
-                  Time
+                  Start Time
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="ml-1 w-3 h-3"
@@ -98,7 +100,7 @@ export default function Info() {
                   </svg>
                 </th>
                 <th scope="col" className="py-3 px-6">
-                  Valid Till
+                  End Time
                 </th>
               </tr>
             </thead>
