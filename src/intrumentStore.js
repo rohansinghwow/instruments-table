@@ -31,7 +31,7 @@ const useInstrumentStore = createStore(
                     const data = await response.json()
 
                     set({ symbolData: data.payload[get().symbol] })
-                    const validArr = get().symbolData.map(obj => parse_time(new Date(obj.valid_till)))
+                    const validArr = get().symbolData.map(obj => new Date(obj.valid_till + '+00:00').toLocaleTimeString())
 
 
                     set({ leastValidTime: validArr[0], dates: validArr })
