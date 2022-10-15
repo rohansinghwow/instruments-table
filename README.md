@@ -32,7 +32,7 @@ npm start
 
 - Contains the search bar with onChange event linked to Zustand Store
 
-### Table.jsx
+### Stocks.jsx
 
 - The main table used for displaying list of stocks
 

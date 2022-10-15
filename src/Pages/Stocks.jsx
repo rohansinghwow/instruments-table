@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Search from "./Search";
+import Search from "../Components/Search";
 import useInstrumentStore from "../intrumentStore";
 import Papa from "papaparse";
 import { Link } from "react-router-dom";
-export default function Table() {
+export default function Stocks() {
   const [CSVData, setCSVData] = useState();
   const { query, setSymbol } = useInstrumentStore((state) => state);
 

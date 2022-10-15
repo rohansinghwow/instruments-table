@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Table from "./Components/Table";
+import Stocks from "./Pages/Stocks";
 import { PersistGate } from "zustand-persist";
 import Option from "./Pages/Option";
 
@@ -9,7 +9,7 @@ export default function App() {
     <>
       <PersistGate>
         <Routes>
-          <Route path="/" element={<Table />} />
+          <Route path="/" element={<Stocks />} />
           <Route path="/option" element={<Option />} />
         </Routes>
       </PersistGate>
