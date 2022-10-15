@@ -19,13 +19,18 @@ export default function Table() {
 
     response.then((v) => setCSVData(v.data));
 
-    console.log(CSVData, "cscc");
-
     return "CSV";
   }, []);
 
   return (
     <>
+      <h1 className="flex mt-15 mx-auto max-w-[420px] items-center text-5xl font-extrabold dark:text-white">
+        List of Stocks
+        <span className="bg-blue-100 text-blue-800 text-2xl font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-2">
+          {CSVData?.length - 1 || ""}
+        </span>
+      </h1>
+
       <div className="mt-[120px]  shadow-md mt-16 mx-auto mb-10  max-w-[720px]  ">
         <Search />
         <div className="overflow-x-auto  h-[620px]  overlow-y-auto relative shadow-md sm:rounded-lg">
@@ -63,7 +68,7 @@ export default function Table() {
                     className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     <Link
-                      to={"/info"}
+                      to={"/option"}
                       onClick={() => setSymbol(Symbol)}
                       className="text-blue-400 hover:underline"
                     >

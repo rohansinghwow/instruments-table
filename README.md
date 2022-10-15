@@ -36,9 +36,9 @@ npm start
 
 - The main table used for displaying list of stocks
 
-### Info.jsx
+### Option.jsx
 
-- The info for the selected Symbol .
+- The info for the selected Symbol (Option) .
 
 ## Note
 
