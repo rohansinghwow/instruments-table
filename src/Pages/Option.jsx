@@ -73,7 +73,7 @@ export default function Option() {
       {!expired && (
         <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="bg-blue-600 rounded dark:bg-blue-500 text-xs text-gray-700 uppercase dark:text-gray-400 text-white shadow-lg">
+            <thead className="bg-blue-600 rounded dark:bg-blue-500 text-xs uppercase  text-white shadow-lg">
               <tr>
                 <th scope="col" className="py-3 px-6">
                   Price
