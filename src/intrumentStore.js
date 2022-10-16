@@ -16,16 +16,17 @@ const useInstrumentStore = createStore(
 
         (set, get) => (
             {
-                CSV_DATA: [],
-                query: '',
+                CSV_DATA: [], //API Data
+                query: '', //Search Query
                 symbol: 'SBIN', //default
-                symbolData: [],
+                symbolData: [], //Store a particular symbol data
                 leastValidTime: 10000000000, //default
-                dates: [],
+                dates: [], //manipulated valid_till dates
+
+
                 setQuery: (str) => {
                     set((state) => ({ query: str }))
                 },
-
                 getSymbol: async (url) => {
                     const response = await fetch(url + get().symbol)
                     const data = await response.json()
