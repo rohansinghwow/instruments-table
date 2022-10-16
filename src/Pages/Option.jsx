@@ -23,13 +23,14 @@ export default function Option() {
 
   const pageLoad = new Date().getTime();
   function relaodLater() {
-    const timer = setTimeout(() => {
+    const timeout = setTimeout(() => {
+      getSymbol("https://prototype.sbulltech.com/api/v2/quotes/");
       setExpired(false);
       refreshPage();
     }, 10000);
   }
   useEffect(() => {
-    setInterval(() => {
+    const timer = setInterval(() => {
       const now = new Date().toLocaleTimeString();
 
       if (now >= leastValidTime) {
@@ -37,7 +38,8 @@ export default function Option() {
         relaodLater();
       }
     }, 1000);
-  });
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     getSymbol("https://prototype.sbulltech.com/api/v2/quotes/");
