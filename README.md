@@ -18,7 +18,7 @@ npm start
 - Windi CSS for super-fast CSS build speed . Same as Tailwind CSS but faster.
 - React JS
 - React Router Dom
-- Zustand - State management
+- Zustand - Global State management
 
 # Important Files
 
@@ -27,6 +27,8 @@ npm start
 - Used as a global state for the app .
 - It's a Zustand Store
 - Async and events are handled there .
+- Most of the logic are declared here .
+- This contains state and methods that changes the state values throughout the application .
 
 ### Search.jsx
 
@@ -38,11 +40,7 @@ npm start
 
 ### Option.jsx
 
-- The info for the selected Symbol (Option) .
-
-## Note
-
-Not able to implemment the refresh feature.
+- The table that contains info for the selected Symbol (Option) .
 
 ### Contact Me
 
