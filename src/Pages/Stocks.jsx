@@ -24,9 +24,9 @@ export default function Stocks() {
 
   return (
     <>
-      <h1 className="flex mt-15 mx-auto max-w-[420px] items-center text-5xl font-extrabold dark:text-white">
+      <h1 className="flex mt-15 mx-auto max-w-[420px] items-center text-5xl font-extrabold ">
         List of Stocks
-        <span className="bg-blue-100 text-blue-800 text-2xl font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-2">
+        <span className="bg-blue-100 text-blue-800 text-2xl font-semibold mr-2 px-2.5 py-0.5 rounded   ml-2">
           {CSVData?.length - 1 || ""}
         </span>
       </h1>
@@ -34,8 +34,8 @@ export default function Stocks() {
       <div className="mt-[120px]  shadow-md mt-16 mx-auto mb-10  max-w-[720px]  ">
         <Search />
         <div className="overflow-x-auto  h-[620px]  overlow-y-auto relative shadow-md sm:rounded-lg">
-          <table className=" w-full relative text-sm text-left text-gray-700 dark:text-gray-400">
-            <thead className=" w-[720px] top-[120px] rounded-md text-xs text-gray-700 uppercase bg-blue-500 dark:bg-gray-700 text-white dark:text-gray-400">
+          <table className=" w-full relative text-sm text-left text-gray-700 ">
+            <thead className=" w-[720px] top-[120px] rounded-md text-xs  uppercase bg-blue-500  text-white ">
               <tr>
                 <th scope="col" className="py-3 px-6">
                   Symbol
@@ -61,11 +61,11 @@ export default function Stocks() {
               ).map(({ Symbol, Name, Sector, Validtill }, index) => (
                 <tr
                   key={index}
-                  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                  className="bg-white border-b  hover:bg-gray-50 "
                 >
                   <th
                     scope="row"
-                    className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap "
                   >
                     <Link
                       to={"/option"}

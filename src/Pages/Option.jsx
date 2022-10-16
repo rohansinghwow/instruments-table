@@ -47,23 +47,23 @@ export default function Option() {
 
   return (
     <div className="mt-16 mx-auto max-w-[520px]">
-      <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-2xl dark:text-white">
+      <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-2xl ">
         Option :
-        <mark className="px-2 ml-2 text-white bg-blue-600 rounded dark:bg-blue-500">
+        <mark className="px-2 ml-2 text-white bg-blue-600 rounded ">
           {symbol}
         </mark>
       </h1>
 
       <Link
         to={"/"}
-        className="text-white mb-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="text-white mb-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center "
       >
         Go Back
       </Link>
 
       {expired && (
         <div
-          className="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800"
+          className="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg "
           role="alert"
         >
           <span className="font-medium">Validity Expired !</span>Please Wait ,
@@ -74,8 +74,8 @@ export default function Option() {
 
       {!expired && (
         <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="bg-blue-600 rounded dark:bg-blue-500 text-xs uppercase  text-white shadow-lg">
+          <table className="w-full text-sm text-left text-gray-500 ">
+            <thead className="bg-blue-600 rounded  text-xs uppercase  text-white shadow-lg">
               <tr>
                 <th scope="col" className="py-3 px-6">
                   Price
@@ -106,7 +106,7 @@ export default function Option() {
                 return (
                   <tr
                     key={index}
-                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                    className="bg-white border-b  hover:bg-gray-50 "
                   >
                     <td className="py-4 px-6">
                       Rs. {price.toString().slice(0, 8) || "---"}/-
