@@ -42,6 +42,10 @@ npm start
 
 - The table that contains info for the selected Symbol (Option) .
 
+### Netlify.toml (not important)
+
+- If it is decided to host this project on netlify then the file fixes the refresh bug .
+
 ### Contact Me
 
 Email - rohansinghwow@gmail.com
